@@ -91,6 +91,10 @@ angular.module('precioElectricidadAngularApp')
             error(function(data, status, headers, config) {
               // called asynchronously if an error occurs
               // or server returns response with an error status.
+              console.log(data);
+              console.log(status);
+              $scope.txt.errorData = data;
+              $scope.txt.errorStatus = status;
               $scope.online = false;
         });
 
