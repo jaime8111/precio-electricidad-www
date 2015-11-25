@@ -93,6 +93,7 @@ angular.module('precioElectricidadAngularApp')
               // or server returns response with an error status.
               console.log(data);
               console.log(status);
+              $scope.txt.jsonURL = apiURL + 'api/get'+todayDateURI;
               $scope.txt.errorData = data;
               $scope.txt.errorStatus = status;
               $scope.online = false;
