@@ -1,0 +1,5 @@
+Con el nuevo sistema de tarificación del consumo electrico los Españoles pagaremos por la luz un precio diferente cada hora.
+
+Con esta app podras conocer el precio actual, así como el precio de cualquier hora de hoy y de mañana. De este modo podrás decidir cuando encender ese aparatejo que tanto consume, y así pagar menos por su uso.
+
+Los precios se obtienen del mercado diario omie.es

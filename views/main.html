@@ -1,0 +1,110 @@
+<div id="pagesWrap">
+    <div id="landing" class="page">
+        <div id="contentWrap">
+            <div id="appLogo">
+
+            </div>
+            <a ng-click="refreshPage()" id="topRefresh" class="bt"></a>
+            <dl class="tabs clearfix">
+                <dd><a href="#today" class="active ellipsis">hoy, {{ txt.todayString }} {{ txt.todayNumber }}</a></dd>
+                <dd><a href="#tommorrow" class="ellipsis">mañana</a></dd>
+            </dl>
+
+            <div ng-if="online" class="tabs-content">
+                <div id="today">
+                    <div ng-if="!today.availablePrices" class="warningMsg">
+                        <p>No disponemos de los precios de hoy.</p>
+                        <p>Disculpa las molestias.</p>
+                        <a id="refreshTrigger" ng-click="refreshPage()" class="bt bg_orange">
+                            Volver a intentar
+                        </a>
+                    </div>
+                    <div ng-if="today.availablePrices" class="pricesData">
+
+                        <div class="preventMargin">
+                            <div class="currentPriceWrap">
+                                <p class="nm">Precio actual del kilo-vatio:</p>
+                                <strong class="figure huge">
+                                <i id="currentPrice">{{ today.currentHourPrice | number }}</i><em>&euro;</em>
+                                </strong>
+                            </div>
+                            <div class="averageFigures">
+                                <strong class="figure">
+                                    {{today.dailyMin | number}} / {{today.dailyMax | number}}<em>&euro;</em>
+                                </strong>
+                                <p>min / max</p>
+
+                                <strong class="figure db cb">
+                                    {{today.averagePrice | number}}<em>&euro;</em>
+                                </strong>
+                                <p>precio medio</p>
+                            </div>
+                        </div>
+                        <div highchart
+                                class="preventMargin chartPanel cb"
+                                hc-chart-prices="today.chartPrices"
+                                hc-past-prices="today.pastPrices"
+                                hc-min-val="today.minVal"
+                                hc-current-hour-price="today.currentHourPrice"
+                                hc-loaded="today.loaded"
+                        ></div>
+                        <p class="small ac">Pulsa cualquier hora para consultar su precio</p>
+                    </div>
+                </div>
+                <div id="tommorrow" class="hidden">
+                    <div ng-if="!tomorrow.availablePrices" class="warningMsg">
+                        <p>Todavía no están fijados los precios para mañana. Los suelen fijar a las 12:00 de la mañana del día anterior.</p>
+                        <p>Disculpa las molestias.</p>
+                        <a id="refreshTrigger" ng-click="refreshPage()" class="bt bg_orange">
+                            Volver a intentar
+                        </a>
+                    </div>
+                    <div ng-if="tomorrow.availablePrices" class="pricesData">
+                        <div class="preventMargin">
+                            <div class="currentPriceWrap">
+                                <p class="nm">Mañana a esta hora el kilo-vatio costará:</p>
+                                <strong class="figure huge">
+                                <i id="currentPrice">{{ tomorrow.currentHourPrice | number }}</i><em>&euro;</em>
+                                </strong>
+                            </div>
+                            <div class="averageFigures">
+                                <strong class="figure">
+                                    {{tomorrow.dailyMin | number}} / {{tomorrow.dailyMax | number}}<em>&euro;</em>
+                                </strong>
+                                <p>min / max</p>
+
+                                <strong class="figure db cb">
+                                    {{tomorrow.averagePrice | number}}<em>&euro;</em>
+                                </strong>
+                                <p>precio medio</p>
+                            </div>
+                        </div>
+
+                        <div highchart class="preventMargin chartPanel cb"
+                                hc-chart-prices="tomorrow.chartPrices"
+                                hc-past-prices="tomorrow.pastPrices"
+                                hc-min-val="tomorrow.minVal"
+                                hc-current-hour-price="tomorrow.currentHourPrice"
+                                hc-loaded="tomorrow.loaded"
+                        ></div>
+                        <p class="small ac">Pulsa cualquier hora para consultar su precio</p>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="!online" class="warningMsg">
+                <p>
+                    Parece que en este momento no tienes conexión a internet.
+                </p>
+                <p>
+                    Vuelve a probarlo cuando estés conectado con el mundo exterior.
+                </p>
+                <a id="refreshTrigger" ng-click="refreshPage()" class="bt bg_orange">
+                    Volver a intentar
+                </a>
+            </div>
+            <br/>
+            <p class="footnote small ar nm">Precios en kWh. Datos obtenidos de omie.es</p>
+            <p class="footnote small ar nm">Desarrollado por <a href="http://www.vissit.com">vissit</a></p>
+        </div>
+    </div>
+</div>
