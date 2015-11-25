@@ -50,6 +50,8 @@ Los precios se obtienen del mercado diario omie.es
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
-    <access origin="*" />
+    <access origin="http://*.vissit.com" />
+    <allow-navigation href="*://*.vissit.com/*" />
+    <allow-intent href="*://*.vissit.com/*" />
     <engine name="android" spec="~4.1.1" />
 </widget>
