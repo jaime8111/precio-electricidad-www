@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.vissit.precioluz" version="1.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.vissit.precioluz" version="2.0.9" versionCode="209" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Precio de la luz en España</name>
     <description>
         Con el nuevo sistema de tarificación del consumo eléctrico los Españoles pagaremos por la luz un precio diferente cada hora.
